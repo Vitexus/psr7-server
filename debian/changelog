@@ -1,0 +1,7 @@
+php-nyholm-psr7-server (1.1.0-1) UNRELEASED; urgency=medium
+
+  * Initial packaging of nyholm/psr7-server (tag 1.1.0), a dependency
+    of the OpenTelemetry PHP SDK used by MultiFlexi's OTLP metrics
+    exporter.
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Thu, 09 Jul 2026 13:07:11 +0200

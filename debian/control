@@ -1,0 +1,30 @@
+Source: php-nyholm-psr7-server
+Section: php
+Priority: optional
+Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
+Build-Depends:
+ debhelper-compat (= 13),
+ pkg-php-tools,
+ php-cli,
+ jq,
+ phpab,
+ appstream,
+Standards-Version: 4.7.0
+Homepage: http://tnyholm.se
+Rules-Requires-Root: no
+Vcs-Git: https://github.com/Vitexus/psr7-server.git
+Vcs-Browser: https://github.com/Vitexus/psr7-server
+
+Package: php-nyholm-psr7-server
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends},
+ php-common,
+ php-psr-http-message,
+ php-psr-http-factory,
+ composer,
+Description: Helper classes to handle PSR-7 server requests
+ Provides ServerRequestCreator, which builds a PSR-7 ServerRequest from
+ PHP superglobals using any PSR-17 factory implementation. Used by the
+ OpenTelemetry PHP SDK.

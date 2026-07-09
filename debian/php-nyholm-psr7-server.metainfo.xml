@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="generic">
+  <id>cz.vitexsoftware.php-nyholm-psr7-server</id>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Nyholm PSR-7 Server</name>
+  <summary>Helper classes to handle PSR-7 server requests</summary>
+  <description>
+    <p>
+      Provides ServerRequestCreator, which builds a PSR-7 ServerRequest
+      from PHP superglobals using any PSR-17 factory implementation.
+      Used by the OpenTelemetry PHP SDK.
+    </p>
+  </description>
+  <icon type="stock">package-x-generic</icon>
+  <url type="homepage">http://tnyholm.se</url>
+</component>

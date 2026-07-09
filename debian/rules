@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+
+PKG_VERSION := $(shell dpkg-parsechangelog -S Version | sed 's/~.*//')
+PKG_SOURCE  := $(shell jq -r '.name' composer.json)
+PKG_TYPE    := $(shell jq -r '.type // "library"' composer.json)
+
+DESTDIR := debian/php-nyholm-psr7-server/usr/share/php/Nyholm/Psr7Server
+
+%:
+	dh $@ --with phpcomposer
+
+override_dh_install:
+	dh_install
+	phpab -o $(DESTDIR)/autoload.php $(DESTDIR)
+	cat debian/installedversions.php >> $(DESTDIR)/autoload.php
+	sed -i "s|'unknown'|'$(PKG_SOURCE)'|" $(DESTDIR)/autoload.php
+	sed -i "s|'0.0.0'|'$(PKG_VERSION)'|" $(DESTDIR)/autoload.php
+	sed -i "s|'library'|'$(PKG_TYPE)'|g" $(DESTDIR)/autoload.php
+
+override_dh_auto_test:
+	appstreamcli validate --pedantic --no-net \
+	    debian/php-nyholm-psr7-server.metainfo.xml
